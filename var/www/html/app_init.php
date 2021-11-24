@@ -1,6 +1,4 @@
 <?php
-if (defined('APP_INITIALIZED')) return;
-define('APP_INITIALIZED', true);
 
 $classes = include __DIR__ . '/vendor/composer/autoload_classmap.php';
 
