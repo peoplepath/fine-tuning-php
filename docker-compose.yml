@@ -1,0 +1,15 @@
+services:
+
+  php-fpm:
+    image: php:${PHP_VERSION}-fpm-alpine
+    volumes:
+      - ./var/www/html:/var/www/html
+      - ./usr/local/etc/php/conf.d/opcache-fine-tune.ini:/usr/local/etc/php/conf.d/opcache-fine-tune.ini
+
+  nginx:
+    image: nginx:${NGINX_VERSION}-alpine
+    ports:
+      - 127.0.0.1:80:80
+    volumes:
+      - ./var/www/html:/var/www/html
+      - ./etc/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
